@@ -115,7 +115,7 @@
         android:id="@+id/views"
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size"
-        android:contentDescription="@string/visibility"
+        android:contentDescription="@string/Views"
         android:src="@drawable/ic_visibility_24dp"
         android:layout_marginTop="@dimen/padding"
         app:layout_constraintTop_toBottomOf="@id/content"

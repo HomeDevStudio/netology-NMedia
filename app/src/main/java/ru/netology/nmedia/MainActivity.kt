@@ -56,7 +56,6 @@ class MainActivity : AppCompatActivity() {
     private fun formatCount(count: Int): String {
         val num = count.toDouble() / 1000
         return if (num in 1.0..999.9) {
-            val f = "%.1f".format(num)
             "${"%.1f".format(num).trimEnd { it == '0' }.trimEnd { it == ',' }}K"
         } else if (num > 999.9) {
             "${"%.1f".format(num / 1000).trimEnd { it == '0' }.trimEnd { it == ',' }}M"
