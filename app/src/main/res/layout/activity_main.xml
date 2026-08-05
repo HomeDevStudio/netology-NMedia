@@ -13,10 +13,11 @@
         android:layout_width="@dimen/image_size"
         android:layout_height="@dimen/image_size"
         android:contentDescription="@string/description_post_author_avatar"
+        android:src="@drawable/ic_netology_48dp"
+        tools:src="@sample/posts.json/data/authorAvatar"
         app:layout_constraintBottom_toTopOf="@id/barrier_header"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@sample/posts.json/data/authorAvatar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/author"
@@ -47,7 +48,7 @@
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:contentDescription="@string/description_post_menu"
-        android:src="@drawable/ic_more_vert_24"
+        android:src="@drawable/ic_more_vert_24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -67,33 +68,37 @@
         app:layout_constraintTop_toBottomOf="@+id/barrier_header"
         tools:text="@sample/posts.json/data/content" />
 
-    <ImageView
-        android:id="@+id/favorite"
+    <ImageButton
+        android:id="@+id/like"
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size"
-        android:src="@drawable/ic_favorite_border_24"
+        android:contentDescription="@string/like"
+        android:src="@drawable/ic_like_24dp"
         android:layout_marginTop="@dimen/padding"
+        android:background="@android:color/transparent"
         app:layout_constraintTop_toBottomOf="@id/content"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/favorite_count"
+        android:id="@+id/like_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/favorite"
-        app:layout_constraintTop_toTopOf="@id/favorite"
-        app:layout_constraintBottom_toBottomOf="@id/favorite"
+        app:layout_constraintStart_toEndOf="@id/like"
+        app:layout_constraintTop_toTopOf="@id/like"
+        app:layout_constraintBottom_toBottomOf="@id/like"
         android:layout_marginStart="@dimen/padding_text"
         tools:text="10" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/share"
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size"
-        android:src="@drawable/ic_share_24"
+        android:contentDescription="@string/share"
+        android:src="@drawable/ic_share_24dp"
         android:layout_marginTop="@dimen/padding"
+        android:background="@android:color/transparent"
         app:layout_constraintTop_toBottomOf="@id/content"
-        app:layout_constraintStart_toEndOf="@id/favorite_count"
+        app:layout_constraintStart_toEndOf="@id/like_count"
         android:layout_marginStart="@dimen/padding"/>
 
     <TextView
@@ -107,22 +112,23 @@
         tools:text="5" />
 
     <ImageView
-        android:id="@+id/visibility"
+        android:id="@+id/views"
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size"
-        android:src="@drawable/ic_visibility_24"
+        android:contentDescription="@string/visibility"
+        android:src="@drawable/ic_visibility_24dp"
         android:layout_marginTop="@dimen/padding"
         app:layout_constraintTop_toBottomOf="@id/content"
-        app:layout_constraintEnd_toStartOf="@id/visibility_count"
+        app:layout_constraintEnd_toStartOf="@id/viewsCount"
         android:layout_marginEnd="@dimen/padding_text"/>
 
     <TextView
-        android:id="@+id/visibility_count"
+        android:id="@+id/viewsCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/visibility"
-        app:layout_constraintBottom_toBottomOf="@id/visibility"
+        app:layout_constraintTop_toTopOf="@id/views"
+        app:layout_constraintBottom_toBottomOf="@id/views"
         tools:text="5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
