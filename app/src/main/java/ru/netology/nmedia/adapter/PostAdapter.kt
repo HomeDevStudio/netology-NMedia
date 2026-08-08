@@ -2,6 +2,8 @@ package ru.netology.nmedia.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.CardPostBinding
@@ -12,13 +14,7 @@ typealias ClickListener = (Post) -> Unit
 class PostAdapter(
     private val likeClickListener: ClickListener,
     private val shareClickListener: ClickListener
-) : RecyclerView.Adapter<PostViewHolder>() {
-    var data: List<Post> = emptyList()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
-
+) : ListAdapter<Post, PostViewHolder>(PostDiffItemCallback()) {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -32,10 +28,8 @@ class PostAdapter(
         holder: PostViewHolder,
         position: Int
     ) {
-        holder.bind(data[position])
+        holder.bind(getItem(position))
     }
-
-    override fun getItemCount(): Int = data.size
 }
 
 class PostViewHolder(
@@ -62,6 +56,23 @@ class PostViewHolder(
             }
         }
     }
+}
+
+class PostDiffItemCallback : DiffUtil.ItemCallback<Post>() {
+    override fun areItemsTheSame(
+        oldItem: Post,
+        newItem: Post
+    ): Boolean = oldItem.id == newItem.id
+
+    override fun areContentsTheSame(
+        oldItem: Post,
+        newItem: Post
+    ): Boolean = oldItem == newItem
+
+    override fun getChangePayload(
+        oldItem: Post,
+        newItem: Post
+    ): Any = Unit
 }
 
 private fun formatCount(count: Int): String {
